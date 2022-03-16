@@ -1,0 +1,56 @@
+ALGORITHM Checkpoint2-ex1
+VAR
+    set1 : ARRAY_OF INTEGER[3,1,7,9];
+    set2 : ARRAY_OF INTEGER[2,4,1,9,3];
+    sum,i,j:INTEGER:=0;
+BEGIN
+    FOR i FROM 0 TO set1.length-1 DO
+        FOR i FROM 0 TO set2.length-1 DO
+            IF (set1[i]=set2[j]) THEN
+                sum:=sum+(set1[i]*2)
+            END_IF
+        END_FOR
+    END_FOR
+END
+
+
+
+ALGORITHM Checkpoint2-ex2
+VAR
+    set1 : ARRAY_OF INTEGER[3,1,7,9];
+    set2 : ARRAY_OF INTEGER[2,4,1,9,3];
+    sum,i,j,k:INTEGER:=0;
+    bool: BOOLEAN;
+BEGIN
+//set1
+    FOR i FROM 0 TO set1.length-1 DO
+    bool:=False;
+    // comparaison set1[i] et set2[j] lkol
+        FOR i FROM 0 TO set2.length-1 DO
+            IF (set1[i]=set2[j]) THEN
+                bool:=true
+        break
+            END_IF
+        END_FOR
+        IF (bool=False) THEN
+            sum:=sum+set1[i]
+        END_IF
+    END_FOR
+    
+    //partie2
+    FOR i FROM 0 TO set2.length-1  DO
+
+    bool=false
+
+    FOR k FROM 0 TO set1.length-1  DO
+        IF (set2[i]=set1[k]) THEN
+            bool:=true
+            break
+        END_IF
+    END_FOR
+    IF (bool=false) THEN
+        sum:= sum+set2[i]
+    END_IF
+    END_FOR
+    write(sum)
+END
